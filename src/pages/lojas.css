@@ -1,0 +1,236 @@
+.lojas{
+    width: 100%;
+    height: 90dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+    gap: 50px;
+}
+
+.lojas div:nth-child(1){
+    width: 45%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.lojas div h1{
+    font-size: 2.4rem;
+    line-height: 100%;
+    width: 100%;
+    font-weight: 400;
+}
+
+.lojas div p{
+    margin-top: -10px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color--red);
+}
+
+.lojas div div{
+    margin-top: 20px;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lojas div div p{
+    color: var(--color--black);
+    font-size: 1rem;
+    margin-top: 0px;
+    font-weight: 200;
+    width: 100%;
+}
+
+.lojas div div button{
+    padding: 10px 20px;
+    background-color: var(--color--black);
+    color: var(--color--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 15px;
+    transition: all .2s ease-in-out;
+}
+
+.lojas div div button:hover{
+    background-color: transparent;
+    border: 1px solid var(--color--red);
+    color: var(--color--red);
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.lojas div:nth-child(2){
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.lojas div:nth-child(2) img{
+    width: 100%;
+    height: 85%;
+    object-fit: contain;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2));
+    transition: transform .5s ease-in-out, filter .2s ease-in-out;
+}
+
+.lojas div:nth-child(2) img:hover{
+    transform: scale(1.05) skew(-1deg);
+    filter: drop-shadow(7px 7px 4px rgba(0, 0, 0, 0.3));
+}
+
+.lojas div:nth-child(2) div{
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    left: 10px;
+    bottom: 50px;
+}
+
+.lojas div:nth-child(2) div h1{
+    font-size: 4rem;
+    width: auto;
+    color: var(--color--red);
+    line-height: 100%;
+    font-weight: 800;
+}
+
+.lojas div:nth-child(2) div p{
+    font-size: 1.5rem;
+    width: auto;
+    line-height: 100%;
+    font-weight: 200;
+    margin-top: -20px;
+    color: var(--color--black);
+}
+
+@media (max-width: 768px){
+    .lojas{
+        width: 100%;
+        height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 5%;
+        gap: 20px;
+    }
+    
+    .lojas div:nth-child(1){
+        width: 100%;
+        height: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .lojas div h1{
+        font-size: 1.6rem;
+        text-align: center;
+        line-height: 100%;
+        width: 100%;
+        font-weight: 400;
+    }
+    
+    .lojas div p{
+        margin-top: -15px;
+        text-align: center;
+        width: 100%;
+        font-size: 0.8rem;
+        font-weight: 400;
+    }
+    
+    .lojas div div{
+        margin-top: 20px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .lojas div div p{
+        font-size: 0.8rem;
+        margin-top: 0px;
+        font-weight: 200;
+        width: 100%;
+    }
+    
+    .lojas div div button{
+        padding: 10px 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        gap: 15px;
+        transition: all .2s ease-in-out;
+    }
+    
+    .lojas div div button:hover{
+        background-color: transparent;
+        letter-spacing: 0.5px;
+    }
+    
+    .lojas div:nth-child(2){
+        width: 100%;
+        height: 45%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .lojas div:nth-child(2) img{
+        width: 100%;
+        height: 85%;
+    }
+    
+    .lojas div:nth-child(2) div{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: auto;
+        left: -30%;
+        bottom: 30px;
+    }
+    
+    .lojas div:nth-child(2) div h1{
+        font-size: 2rem;
+        width: auto;
+        color: var(--color--red);
+        line-height: 100%;
+        font-weight: 800;
+    }
+    
+    .lojas div:nth-child(2) div p{
+        font-size: 1rem;
+        width: auto;
+        line-height: 100%;
+        font-weight: 200;
+        margin-top: -20px;
+        color: var(--color--black);
+    }
+}

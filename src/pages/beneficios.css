@@ -1,0 +1,133 @@
+.beneficios{
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 10%;
+    background-color: var(--color--black);
+    clip-path: polygon(50% 3%, 52% 0, 100% 0, 100% 100%, 0 100%, 0 0, 48% 0);
+}
+
+.beneficios section{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.beneficios section div{
+    width: 24%;
+    height: 48%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    gap: 30px;
+    border-radius: 10px;
+    background-color: var(--color--white);
+    transition: transform .2s ease-in-out;
+}
+
+.beneficios section div:hover{
+    transform: scale(1.02);
+}
+
+.beneficios section div i{
+    font-size: 5rem;
+    color: var(--color--black);
+}
+
+.beneficios section div p{
+    width: 100%;
+    text-align: center;
+    line-height: 100%;
+    color: var(--color--black);
+    font-weight: 200;
+}
+
+.beneficios section div p b{
+    color: var(--color--red);
+    font-weight: 700;
+}
+
+.beneficios div button{
+    padding: 10px 20px;
+    background-color: var(--color--white);
+    color: var(--color--black);
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all .2s ease-in-out;
+}
+
+.beneficios div button:hover{
+    background-color: var(--color--red);
+    border: 1px solid var(--color--white);
+    color: var(--color--white);
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px){
+    .beneficios{
+        height: 120dvh;
+        gap: 40px;
+        padding: 0 5%;
+        clip-path: polygon(50% 3%, 55% 0, 100% 0, 100% 100%, 0 100%, 0 0, 45% 0);
+    }
+    
+    .beneficios section{
+        width: 100%;
+        height: 75%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .beneficios section div{
+        width: 48%;
+        height: 24%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        gap: 20px;
+    }
+    
+    .beneficios section div:hover{
+        transform: scale(1.02);
+    }
+    
+    .beneficios section div i{
+        font-size: 3rem;
+    }
+    
+    .beneficios section div p{
+        width: 100%;
+        text-align: center;
+        font-size: 0.8rem;
+        line-height: 100%;
+        font-weight: 200;
+    }
+    
+    .beneficios section div p b{
+        font-weight: 700;
+    }
+
+    .beneficios div button{
+        margin-top: 5px;
+    }
+}

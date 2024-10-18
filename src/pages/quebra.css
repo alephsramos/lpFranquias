@@ -1,0 +1,220 @@
+.quebra{
+    height: 50dvh;
+    width: 100%;
+    padding: 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.quebra > div:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    width: 50%;
+}
+
+.quebra > div:nth-child(1) h1{
+    width: 80%;
+    text-align: left;
+    font-weight: 200;
+    font-size: 1.8rem;
+    line-height: 100%;
+}
+
+.quebra > div:nth-child(1) h1 b{
+    color: var(--color--red);
+    font-weight: 500;
+}
+
+.quebra > div:nth-child(1) button{
+    padding: 10px 20px;
+    background-color: var(--color--black);
+    color: var(--color--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 15px;
+    transition: all .2s ease-in-out;
+}
+
+.quebra > div:nth-child(1) button:hover{
+    background-color: transparent;
+    border: 1px solid var(--color--red);
+    color: var(--color--red);
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.faq {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid var(--color--black);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.faq h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--color--black);
+    font-weight: 600;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+    border: 1px solid var(--color--red);
+    padding: 10px;
+    background-color: var(--color--black);
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.faq-question {
+    font-size: 1rem;
+    color: var(--color--white);
+    margin: 0;
+    width: 80%;
+    display: inline-block;
+    font-weight: 400;
+}
+
+.faq-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: var(--color--white);
+}
+
+.faq-answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding: 0;
+    margin-top: 10px;
+    color: var(--color--white);
+}
+
+.faq-answer p {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+
+.faq-answer.active {
+    max-height: 300px;
+    padding: 10px 0;
+}
+
+.faq-item.active {
+    background-color: var(--color--red); /* Alterar para a cor que deseja para o FAQ aberto */
+    border-color: var(--color--white); /* Mudar a borda também, se quiser */
+}
+
+.faq-answer.active {
+    max-height: 300px;
+    padding: 10px 0;
+}
+
+
+@media (max-width: 768px){
+    .quebra{
+        height: auto;
+        width: 100%;
+        padding: 10% 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .quebra > div:nth-child(1){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+    }
+    
+    .quebra > div:nth-child(1) h1{
+        width: 100%;
+        text-align: center;
+        font-weight: 200;
+        font-size: 1.4rem;
+        line-height: 100%;
+    }
+    
+    .quebra > div:nth-child(1) h1 b{
+        font-weight: 500;
+    }
+    
+    .faq {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    .faq h1 {
+        text-align: center;
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    
+    .faq-item {
+        margin-bottom: 10px;
+        position: relative;
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    .faq-question {
+        font-size: 0.8rem;
+        margin: 0;
+        width: 80%;
+        display: inline-block;
+        font-weight: 400;
+    }
+    
+    .faq-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        float: right;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+
+    .faq-answer p {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 200;
+    }
+}
