@@ -144,9 +144,10 @@
         justify-content: flex-start;
         flex-direction: column;
         padding: 10% 5%;
-        background-image: url('../assets/fachada.jpg');
-        background-position: center;
-        background-size: cover;
+        background-image: url('../assets/fachada3.jpg');
+        background-attachment: local;
+        background-position: top;
+        background-size: contain;
     }
     
     .Homepage::before{
