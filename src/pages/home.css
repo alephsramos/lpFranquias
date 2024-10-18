@@ -205,6 +205,10 @@
         width: 100%;
         padding: 12px;
     }
+
+    .Homepage form input::placeholder{
+        font-size: 0.8rem;
+    }
     
     .Homepage form button{
         width: 100%;
