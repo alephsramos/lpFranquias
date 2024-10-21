@@ -100,8 +100,8 @@
     justify-content: center;
     flex-direction: column;
     height: auto;
-    left: 10px;
-    bottom: 50px;
+    left: 30px;
+    bottom: 100px;
 }
 
 .lojas div:nth-child(2) div h1{
