@@ -46,25 +46,179 @@
         <h1 data-aos="fade-up-right" data-aos-delay="200">Colocar uma copy chamativa</h1>
         <p data-aos="fade-up-right" data-aos-delay="400">Preencha agora o formulário abaixo para falar com um consultor.</p>
 
-        <form data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="600">
+        <form id="contactForm">
             <div>
-                <input type="text" id="name" placeholder="Digite seu nome">
-                <input type="tel" id="tel" placeholder="Seu WhatsApp">
+                <input type="text" id="name" placeholder="Digite seu nome" required>
+                <input type="tel" id="tel" placeholder="Seu WhatsApp" required>
             </div>
-            <input type="email" id="email" placeholder="Seu e-mail">
-            <select name="capital">
-                <option value="capital">Qual seu valor para investimento</option>
-                <option value="capital">R$100.000 até R$150.000</option>
-                <option value="capital">R$150.000 até R$250.000</option>
-                <option value="capital">Acima de R$250.000</option>
+            <input type="email" id="email" placeholder="Seu e-mail" required>
+            <select name="capital" id="capital" required>
+                <option value="" disabled selected>Qual seu valor para investimento</option>
+                <option value="R$100.000 até R$150.000">R$100.000 até R$150.000</option>
+                <option value="R$150.000 até R$250.000">R$150.000 até R$250.000</option>
+                <option value="Acima de R$250.000">Acima de R$250.000</option>
             </select>
             <div>
-                <input type="text" id="cidade" placeholder="Nome da sua cidade">
-                <input type="text" id="estado" placeholder="Qual o estado">
+                <input type="text" id="cidade" placeholder="Nome da sua cidade" required>
+                <input type="text" id="estado" placeholder="Qual o estado" required>
             </div>
-
             <button type="submit">Quero ser um franqueado</button>
         </form>
+        
+        <div id="loadingOverlay" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+        
+        
+        
+        
+        
+
+        <script>
+         document.addEventListener('DOMContentLoaded', function () {
+    const formElement = document.getElementById('contactForm');
+    
+    // Verifica se o formulário existe antes de continuar
+    if (!formElement) {
+        console.error('Formulário não encontrado.');
+        return;
+    }
+
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const submitButton = formElement.querySelector('button[type="submit"]');
+
+    formElement.addEventListener('submit', function (event) {
+        event.preventDefault(); // Previne o envio padrão do formulário
+
+        if (!loadingOverlay) {
+            console.error('Overlay de carregamento não encontrado.');
+            return;
+        }
+
+        loadingOverlay.style.display = 'flex'; // Mostra o overlay de carregamento
+
+        // Captura os valores dos campos do formulário
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const tel = document.getElementById('tel').value.trim();
+        const capital = formElement.querySelector('select[name="capital"]').value;
+        const cidade = document.getElementById('cidade').value.trim();
+        const estado = document.getElementById('estado').value.trim();
+
+        // Verifica se a opção de capital selecionada é válida
+        if (!capital) {
+            alert('Por favor, selecione um valor válido para investimento.');
+            loadingOverlay.style.display = 'none'; // Esconde o overlay se não enviar
+            return;
+        }
+
+        // Captura o referrer e UTMs
+        const source = document.referrer || "Landing Page de Franquias da Fast - ASR"; 
+        const utms = getUTMParameters();
+        const uniqueId = generateUniqueId();
+
+        // Monta o payload para o PipeRun
+        const payload = {
+            "rules": {
+                "update": "false",
+                "filter_status_update": "open",
+                "equal_pipeline": "true",
+                "status": "open",
+                "validate_cpf": "false",
+            },
+            leads: [{
+                id: "Landing Page de Franquias da Fast - ASR",
+                user: name,
+                email: email,
+                name: name,
+                personal_phone: tel,
+                last_conversion: {
+                    source: source,
+                },
+                custom_fields: {
+                    capital,
+                    cidade,
+                    estado,
+                    uniqueId,
+                    ...utms
+                }
+            }]
+        };
+
+        // Envia a requisição para o PipeRun
+        fetch('https://app.pipe.run/webservice/integradorJson?hash=f98e86aa-bb05-426c-8ea5-f83f86d0810f', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data);
+
+            // Oculta o overlay após o envio
+            if (loadingOverlay) {
+                loadingOverlay.style.display = 'none'; 
+            }
+
+            // Limpa o formulário após o envio
+            formElement.reset(); 
+
+            // Altera o botão para o link do WhatsApp com ícone
+            submitButton.classList.add('success-background');
+            const buttonText = submitButton.querySelector('.button-text');
+            const whatsappIcon = submitButton.querySelector('.whatsapp-icon');
+            if (buttonText) buttonText.style.display = 'none'; // Esconde o texto do botão
+            if (whatsappIcon) whatsappIcon.style.display = 'inline-block'; // Mostra o ícone do WhatsApp
+
+            // Muda o texto do h2 para "Já enviado" com ícone de check
+            const heading = document.querySelector('#contactForm .form-right-text h2');
+            if (heading) {
+                heading.innerHTML = 'Enviado com sucesso!';
+            }
+
+            submitButton.onclick = function() {
+                window.open('https://wa.link/fiqr5h', '_blank');
+            };
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('Houve um erro ao enviar o formulário.');
+            if (loadingOverlay) {
+                loadingOverlay.style.display = 'none'; // Esconde o overlay em caso de erro
+            }
+        });
+    });
+
+    // Função para gerar um identificador único
+    function generateUniqueId() {
+        return new Date().getTime().toString();
+    }
+
+    // Função para capturar as UTMs da URL
+    function getUTMParameters() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const utmParameters = {};
+        const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+        utmKeys.forEach(key => {
+            const value = urlParams.get(key);
+            if (value) {
+                utmParameters[key] = value;
+            }
+        });
+
+        return utmParameters;
+    }
+});
+
+        </script>
 
         <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="1000" class="politica">
             <p>As informações serão usadas apenas para meio de contato, qualquer duvida acesse nossa <a href="#">politica de privacidade</a>.</p>
@@ -135,7 +289,7 @@
         <div>
             <img data-aos="fade-up-left" data-aos-delay="200" src="src/assets/mapa.png" alt="foto do mapa com as lojas da fast">
             <div data-aos="fade-up" data-aos-delay="400">
-                <h1>45</h1>
+                <h1>42</h1>
                 <p>Lojas de franquias</p>
             </div>
         </div>
