@@ -69,156 +69,162 @@
             <div class="spinner"></div>
         </div>
         
-        
-        
-        
-        
-
         <script>
-         document.addEventListener('DOMContentLoaded', function () {
-    const formElement = document.getElementById('contactForm');
-    
-    // Verifica se o formulário existe antes de continuar
-    if (!formElement) {
-        console.error('Formulário não encontrado.');
-        return;
-    }
-
-    const loadingOverlay = document.getElementById('loadingOverlay');
-    const submitButton = formElement.querySelector('button[type="submit"]');
-
-    formElement.addEventListener('submit', function (event) {
-        event.preventDefault(); // Previne o envio padrão do formulário
-
-        if (!loadingOverlay) {
-            console.error('Overlay de carregamento não encontrado.');
-            return;
-        }
-
-        loadingOverlay.style.display = 'flex'; // Mostra o overlay de carregamento
-
-        // Captura os valores dos campos do formulário
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const tel = document.getElementById('tel').value.trim();
-        const capital = formElement.querySelector('select[name="capital"]').value;
-        const cidade = document.getElementById('cidade').value.trim();
-        const estado = document.getElementById('estado').value.trim();
-
-        // Verifica se a opção de capital selecionada é válida
-        if (!capital) {
-            alert('Por favor, selecione um valor válido para investimento.');
-            loadingOverlay.style.display = 'none'; // Esconde o overlay se não enviar
-            return;
-        }
-
-        // Captura o referrer e UTMs
-        const source = document.referrer || "Landing Page de Franquias da Fast - ASR"; 
-        const utms = getUTMParameters();
-        const uniqueId = generateUniqueId();
-
-        // Monta o payload para o PipeRun
-        const payload = {
-            "rules": {
-                "update": "false",
-                "filter_status_update": "open",
-                "equal_pipeline": "true",
-                "status": "open",
-                "validate_cpf": "false",
-            },
-            leads: [{
-                id: "Landing Page de Franquias da Fast - ASR",
-                user: name,
-                email: email,
-                name: name,
-                personal_phone: tel,
-                last_conversion: {
-                    source: source,
-                },
-                custom_fields: {
-                    capital,
-                    cidade,
-                    estado,
-                    uniqueId,
-                    ...utms
+            document.addEventListener('DOMContentLoaded', function () {
+                const formElement = document.getElementById('contactForm');
+                
+                // Verifica se o formulário existe antes de continuar
+                if (!formElement) {
+                    console.error('Formulário não encontrado.');
+                    return;
                 }
-            }]
-        };
-
-        // Envia a requisição para o PipeRun
-        fetch('https://app.pipe.run/webservice/integradorJson?hash=f98e86aa-bb05-426c-8ea5-f83f86d0810f', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Success:', data);
-
-            // Oculta o overlay após o envio
-            if (loadingOverlay) {
-                loadingOverlay.style.display = 'none'; 
-            }
-
-            // Limpa o formulário após o envio
-            formElement.reset(); 
-
-            // Altera o botão para o link do WhatsApp com ícone
-            submitButton.classList.add('success-background');
-            const buttonText = submitButton.querySelector('.button-text');
-            const whatsappIcon = submitButton.querySelector('.whatsapp-icon');
-            if (buttonText) buttonText.style.display = 'none'; // Esconde o texto do botão
-            if (whatsappIcon) whatsappIcon.style.display = 'inline-block'; // Mostra o ícone do WhatsApp
-
-            // Muda o texto do h2 para "Já enviado" com ícone de check
-            const heading = document.querySelector('#contactForm .form-right-text h2');
-            if (heading) {
-                heading.innerHTML = 'Enviado com sucesso!';
-            }
-
-            submitButton.onclick = function() {
-                window.open('https://wa.link/fiqr5h', '_blank');
-            };
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('Houve um erro ao enviar o formulário.');
-            if (loadingOverlay) {
-                loadingOverlay.style.display = 'none'; // Esconde o overlay em caso de erro
-            }
-        });
-    });
-
-    // Função para gerar um identificador único
-    function generateUniqueId() {
-        return new Date().getTime().toString();
-    }
-
-    // Função para capturar as UTMs da URL
-    function getUTMParameters() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const utmParameters = {};
-        const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
-
-        utmKeys.forEach(key => {
-            const value = urlParams.get(key);
-            if (value) {
-                utmParameters[key] = value;
-            }
-        });
-
-        return utmParameters;
-    }
-});
-
-        </script>
+            
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                const submitButton = formElement.querySelector('button[type="submit"]');
+                const telInput = document.getElementById('tel');
+                const telError = document.createElement('div'); // Cria um elemento para a mensagem de erro
+            
+                telError.style.color = 'red'; // Estilo para a mensagem de erro
+                telError.style.display = 'none'; // Inicialmente escondido
+                telInput.parentNode.insertBefore(telError, telInput.nextSibling); // Adiciona a mensagem após o campo de telefone
+            
+                formElement.addEventListener('submit', function (event) {
+                    event.preventDefault(); // Previne o envio padrão do formulário
+            
+                    if (!loadingOverlay) {
+                        console.error('Overlay de carregamento não encontrado.');
+                        return;
+                    }
+            
+                    loadingOverlay.style.display = 'flex'; // Mostra o overlay de carregamento
+            
+                    // Captura os valores dos campos do formulário
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const tel = telInput.value.trim();
+                    const capital = formElement.querySelector('select[name="capital"]').value;
+                    const cidade = document.getElementById('cidade').value.trim();
+                    const estado = document.getElementById('estado').value.trim();
+            
+                    // Valida o número de celular
+                    if (tel.length < 8 || tel.length > 15) {
+                        telError.textContent = 'Digite um número válido';
+                        telError.style.display = 'block'; // Mostra a mensagem de erro
+                        loadingOverlay.style.display = 'none'; // Esconde o overlay se não enviar
+                        return;
+                    } else {
+                        telError.style.display = 'none'; // Esconde a mensagem de erro se válido
+                    }
+            
+                    // Verifica se a opção de capital selecionada é válida
+                    if (!capital) {
+                        alert('Por favor, selecione um valor válido para investimento.');
+                        loadingOverlay.style.display = 'none'; // Esconde o overlay se não enviar
+                        return;
+                    }
+            
+                    // Remove acentos e caracteres indesejados do capital
+                    const cleanedCapital = cleanCapitalValue(capital);
+            
+                    // Captura o referrer e UTMs
+                    const source = document.referrer || "Landing Page de Franquias da Fast - ASR"; 
+                    const utms = getUTMParameters();
+                    const uniqueId = generateUniqueId();
+            
+                    // Monta o payload para o PipeRun
+                    const payload = {
+                        "rules": {
+                            "update": "false",
+                            "filter_status_update": "open",
+                            "equal_pipeline": "true",
+                            "status": "open",
+                            "validate_cpf": "false",
+                        },
+                        leads: [{
+                            id: "Landing Page de Franquias da Fast - ASR",
+                            user: name,
+                            email: email,
+                            name: name,
+                            personal_phone: tel,
+                            last_conversion: {
+                                source: source,
+                            },
+                            custom_fields: {
+                                capital: cleanedCapital,
+                                cidade,
+                                estado,
+                                uniqueId,
+                                ...utms
+                            }
+                        }]
+                    };
+            
+                    // Envia a requisição para o PipeRun
+                    fetch('https://app.pipe.run/webservice/integradorJson?hash=f98e86aa-bb05-426c-8ea5-f83f86d0810f', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ' + response.statusText);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Success:', data);
+            
+                        // Oculta o overlay após o envio
+                        if (loadingOverlay) {
+                            loadingOverlay.style.display = 'none'; 
+                        }
+            
+                        // Limpa o formulário após o envio
+                        formElement.reset(); 
+            
+                        // Muda o conteúdo do formulário para a mensagem de sucesso
+                        formElement.innerHTML = `
+                            <h2>Você enviou, em breve você será o novo franqueado</h2>
+                        `;
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        alert('Houve um erro ao enviar o formulário.');
+                        if (loadingOverlay) {
+                            loadingOverlay.style.display = 'none'; // Esconde o overlay em caso de erro
+                        }
+                    });
+                });
+            
+                // Função para gerar um identificador único
+                function generateUniqueId() {
+                    return new Date().getTime().toString();
+                }
+            
+                // Função para capturar as UTMs da URL
+                function getUTMParameters() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const utmParameters = {};
+                    const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+            
+                    utmKeys.forEach(key => {
+                        const value = urlParams.get(key);
+                        if (value) {
+                            utmParameters[key] = value;
+                        }
+                    });
+            
+                    return utmParameters;
+                }
+            
+                // Função para remover caracteres especiais do capital
+                function cleanCapitalValue(value) {
+                    return value.replace(/[^0-9.,]+/g, ''); // Remove caracteres indesejados, mantendo apenas números e vírgulas
+                }
+            });
+            </script>
 
         <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="1000" class="politica">
             <p>As informações serão usadas apenas para meio de contato, qualquer duvida acesse nossa <a href="#">politica de privacidade</a>.</p>
@@ -436,6 +442,7 @@
             <p>Desenvolvido por <a href="#">Aleph</a></p>
         </div>
     </footer>
+
 
 
     <script>
