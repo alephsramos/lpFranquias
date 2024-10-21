@@ -1,7 +1,7 @@
 .quebra{
-    height: 50dvh;
+    height: auto;
     width: 100%;
-    padding: 0 10%;
+    padding: 5% 10%;
     display: flex;
     align-items: center;
     justify-content: center;

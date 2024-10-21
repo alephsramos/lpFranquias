@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     align-items: flex-start;
-    gap: 40px;
+    gap: 30px;
     justify-content: center;
     flex-direction: column;
     padding: 0 10%;
@@ -42,12 +42,12 @@
 
 .Homepage img{
     width: auto;
-    height: 10%;
+    height: 7%;
     object-fit: contain;
 }
 
 .Homepage h1{
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     font-weight: 500;
     line-height: 100%;
     color: var(--color--black);
@@ -55,7 +55,7 @@
 }
 
 .Homepage p {
-    font-size: 1.rem; 
+    font-size: .8rem; 
     width: 50%;
     line-height: 100%;
     color: var(--color--black);
@@ -81,7 +81,7 @@
 }
 
 .Homepage form select{
-    padding: 15px;
+    padding: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,15 +91,19 @@
 }
 
 .Homepage form select option{
-    padding: 15px;
+    padding: 12px;
     color: var(--color--black);
 }
 
 .Homepage form input{
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     border-radius: 10px;
     border: 1px solid var(--color--black);
+}
+
+.Homepage form input::placeholder{
+    font-size: 0.8rem;
 }
 
 .Homepage form button{
@@ -107,11 +111,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 12px;
     background-color: var(--color--black);
     color: var(--color--white);
     cursor: pointer;
     border: none;
+    font-size: 0.8rem;
     border-radius: 10px;
     transition: all .2s ease-in-out;
 }
@@ -123,7 +128,7 @@
 
 .politica p{
     width: 60%;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     line-height: 100%;
     color: var(--color--black);
     font-weight: 300;

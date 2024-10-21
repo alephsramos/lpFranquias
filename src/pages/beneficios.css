@@ -1,12 +1,12 @@
 .beneficios{
-    height: 100dvh;
+    height: auto;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 40px;
-    padding: 0 10%;
+    padding: 5% 10%;
     background-color: var(--color--black);
     clip-path: polygon(50% 3%, 52% 0, 100% 0, 100% 100%, 0 100%, 0 0, 48% 0);
 }
@@ -23,7 +23,7 @@
 
 .beneficios section div{
     width: 24%;
-    height: 48%;
+    height: 40vh;
     display: flex;
     align-items: center;
     flex-direction: column;
