@@ -230,3 +230,116 @@
     }
     
 }
+
+@media (min-width: 769px) and (max-width: 1280px){
+    .Homepage{
+        height: 100dvh;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 10%;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .Homepage img{
+        width: auto;
+        height: 8%;
+        object-fit: contain;
+    }
+    
+    .Homepage h1{
+        font-size: 1.3rem;
+        font-weight: 500;
+        line-height: 100%;
+        width: 45%;
+    }
+    
+    .Homepage p {
+        font-size: .8rem; 
+        width: 50%;
+        line-height: 100%;
+        margin-top: -20px;
+        font-weight: 200;
+    }
+    
+    .Homepage form{
+        width: 40%;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: -10px;
+        gap: 10px;
+    }
+    
+    .Homepage form div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 20px;
+    }
+    
+    .Homepage form select{
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid var(--color--black);
+    }
+    
+    .Homepage form select option{
+        padding: 10px;
+        color: var(--color--black);
+    }
+    
+    .Homepage form input{
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid var(--color--black);
+    }
+
+    .Homepage form input::placeholder{
+        font-size: 0.8rem;
+    }
+    
+    .Homepage form button{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        background-color: var(--color--black);
+        color: var(--color--white);
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        transition: all .2s ease-in-out;
+        font-size: 0.8rem;
+    }
+    
+    .Homepage form button:hover{
+        background-color: var(--color--red);
+        letter-spacing: 1px;
+    }
+    
+    .politica p{
+        width: 60%;
+        font-size: 0.8rem;
+        line-height: 100%;
+        color: var(--color--black);
+        font-weight: 300;
+    }
+    
+    .politica p a{
+        color: var(--color--red);
+        font-weight: 600;
+    }
+}
