@@ -29,12 +29,14 @@
     justify-content: space-between;
     gap: 10px;
     margin: 10px;
+    border-radius: 10px;
 }
 
 .destaqueIMG{
     width: 35%;
     height: 100%;
     background-color: var(--color--white);
+    border-radius: 10px;
 }
 
 .destaqueIMG img{
@@ -162,7 +164,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 5% 10%;
+        padding: 5% 5%;
         flex-direction: column;
         gap: 40px;
         background-color: var(--color--red);
