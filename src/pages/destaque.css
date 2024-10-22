@@ -1,15 +1,17 @@
 .destaques{
-    height: 80dvh;
+    height: auto;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 10%;
+    padding: 5% 10%;
     flex-direction: column;
     gap: 40px;
     background-color: var(--color--red);
     clip-path: polygon(100% 0, 100% 100%, 52% 100%, 50% 97%, 48% 100%, 0 100%, 0 0);
 }
+
+.destaques 
 
 .destaques section{
     display: flex;
@@ -22,8 +24,8 @@
 }
 
 .destaques section div{
-    width: 48%;
-    height: 48%;
+    width: 45%;
+    height: 40vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,15 +53,30 @@
     border-radius: 10px 0 0 10px;
 }
 
-.destaques section div p{
+.destaques section div div{
+    border: 1px solid red;
     width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.destaques section div div h1{
+    font-size: 1rem;
+    color: var(--color--white);
+    font-weight: 600;
+}
+
+.destaques section div p{
+    width: 100%;
     padding: 10px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 200;
-    font-size: .8rem;
+    font-size: .7rem;
     line-height: 120%;
     color: var(--color--white);
 }
