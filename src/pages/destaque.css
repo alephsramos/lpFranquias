@@ -93,7 +93,7 @@
         flex-direction: column;
         gap: 40px;
         background-color: var(--color--red);
-        clip-path: polygon(100% 0, 100% 100%, 52% 100%, 50% 97%, 48% 100%, 0 100%, 0 0);
+        clip-path: polygon(100% 0, 100% 100%, 54% 100%, 50% 97%, 46% 100%, 0 100%, 0 0);
     }
     
     .destaques section{
