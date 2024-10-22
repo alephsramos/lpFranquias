@@ -11,25 +11,39 @@
     clip-path: polygon(100% 0, 100% 100%, 52% 100%, 50% 97%, 48% 100%, 0 100%, 0 0);
 }
 
-.destaques 
+@media (min-width: 1281px){
+    .destaques h1{
+        font-size: 2rem!important;
+    }
+
+    .destaques section div p{
+        font-size: 1rem!important;
+    }
+}
+
+.destaques h1{
+    font-size: 1.4rem;
+    color: var(--color--white);
+    font-weight: 600;
+}
 
 .destaques section{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
     height: 60%;
 }
 
 .destaques section div{
-    width: 45%;
-    height: 40vh;
+    width: 48%;
+    height: 32vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: space-evenly;
+    gap: 5px;
+    margin-top: 10px;
     border: 2px solid var(--color--white);
     border-radius: 10px;
     transition: transform .2s ease-in-out;
@@ -58,7 +72,9 @@
     width: 65%;
     height: 100%;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -66,16 +82,20 @@
     font-size: 1rem;
     color: var(--color--white);
     font-weight: 600;
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
 }
 
 .destaques section div p{
     width: 100%;
-    padding: 10px;
-    height: 100%;
+    padding: 5px 10px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 200;
+    text-align: justify;
     font-size: .7rem;
     line-height: 120%;
     color: var(--color--white);
