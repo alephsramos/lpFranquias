@@ -29,7 +29,7 @@
 .conquistas > div:nth-child(1) p{
     width: 100%;
     text-align: left;
-    font-size: .8rem;
+    font-size: 1rem;
     font-weight: 200;
     color: var(--color--white);
 }
