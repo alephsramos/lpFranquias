@@ -1,5 +1,5 @@
 .destaques{
-    height: auto;
+    height: 100dvh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -11,176 +11,71 @@
     clip-path: polygon(100% 0, 100% 100%, 52% 100%, 50% 97%, 48% 100%, 0 100%, 0 0);
 }
 
-@media (min-width: 1281px){
-    .destaques h1{
-        font-size: 2rem!important;
-    }
-
-    .destaques section div p{
-        font-size: 1rem!important;
-    }
-}
-
-.destaques h1{
-    font-size: 1.4rem;
-    color: var(--color--white);
-    font-weight: 600;
-}
-
 .destaques section{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
     width: 100%;
-    height: 60%;
-}
-
-.destaques section div{
-    width: 48%;
-    height: 32vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 5px;
-    margin-top: 10px;
-    border: 2px solid var(--color--white);
-    border-radius: 10px;
-    transition: transform .2s ease-in-out;
-}
-
-.destaques section div:hover{
-    transform: scale(1.02);
-}
-
-.destaques section div img{
-    width: 35%;
-    border: 5px solid;
-    object-fit: contain;
-    height: 100%;
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
-    color: var(--color--red);
-    background-color: var(--color--white);
-    border-radius: 10px 0 0 10px;
+    flex-wrap: wrap;
 }
 
-.destaques section div div{
+.destaqueContainer{
+    width: 48%;
+    border: 2px solid var(--color--white);
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px;
+}
+
+.destaqueIMG{
+    width: 35%;
+    height: 100%;
+    background-color: var(--color--white);
+}
+
+.destaqueIMG img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.destaqueText{
     width: 65%;
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     flex-direction: column;
-    justify-content: center;
-    border: none;
-    gap: 10px;
+    padding: 0 20px;
+    color: var(--color--white);
 }
 
-.destaques section div div h1{
-    font-size: 1rem;
-    color: var(--color--white);
+.destaqueText h2{
+    font-size: 1.4rem;
+    text-align: left;
+    width: 100%;
     font-weight: 600;
-    width: 100%;
-    text-align: center;
-    padding: 10px 20px;
 }
 
-.destaques section div p{
+.destaqueText p{
+    font-size: 0.9rem;
     width: 100%;
-    padding: 5px 10px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 200;
-    text-align: justify;
-    font-size: .7rem;
-    line-height: 120%;
+}
+
+.destaques button{
+    padding: 10px 20px;
+    background-color: var(--color--black);
     color: var(--color--white);
-}
-
-.destaques div button{
-    padding: 10px 20px;
-    background-color: var(--color--white);
-    color: var(--color--color);
-    border: none;
-    border-radius: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
     gap: 15px;
     transition: all .2s ease-in-out;
-}
-
-.destaques div button:hover{
-    background-color: var(--color--white);
-    border: 1px solid var(--color--white);
-    color: var(--color--black);
-    letter-spacing: 0.5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 768px){
-    .destaques{
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10% 5%;
-        flex-direction: column;
-        gap: 40px;
-        clip-path: polygon(100% 0, 100% 100%, 54% 100%, 50% 97%, 46% 100%, 0 100%, 0 0);
-    }
-
-    .destaques h1{
-        font-size: 1rem;
-    }
-    
-    .destaques section{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        width: 100%;
-        height: auto;
-        gap: 20px;
-    }
-    
-    .destaques section div{
-        width: 100%;
-        height: 30vh;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-    
-    .destaques section div img{
-        width: 35%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        border-radius: 10px 0 0 10px;
-    }
-    
-    .destaques section div p{
-        width: 100%;
-        padding: 5px 10px;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.7rem;
-    }
-    
-}
-
-@media (min-width: 769px) and (max-width: 1280px){
-
+    margin-top: 50px;
 }
