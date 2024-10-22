@@ -102,7 +102,6 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        gap: 40px;
     }
     
     .conquistas > div:nth-child(1) img{
