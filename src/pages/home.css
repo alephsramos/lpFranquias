@@ -169,7 +169,7 @@
     }
     
     .Homepage::before{
-        clip-path: polygon(0 0, 100% 0, 100% 75%, 70% 85%, 30% 85%, 0 75%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 74% 97%, 57% 93%, 43% 93%, 28% 97%, 0 85%);
     }
     
     .Homepage::after{
