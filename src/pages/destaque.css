@@ -108,7 +108,7 @@
     .destaqueContainer{
         width: 100%;
         border: 2px solid var(--color--white);
-        height: 25vh;
+        height: 22vh;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -154,7 +154,7 @@
     }
 
     .destaques button{
-        margin-top: 80px;
+        margin-top: 20px;
         margin-bottom: 50px;
     }
 }
