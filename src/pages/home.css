@@ -199,6 +199,11 @@
     .Homepage form select{
         padding: 15px;
         width: 100%;
+        -webkit-appearance: none; /* Remove o estilo padrão no iOS */
+        -moz-appearance: none; /* Remove o estilo padrão no Firefox */
+        appearance: none; /* Remove o estilo padrão */
+        background-color: transparent;
+        border: 1px solid var(--color--black);
     }
     
     .Homepage form select option{
