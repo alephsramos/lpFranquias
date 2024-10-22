@@ -167,6 +167,7 @@
         padding: 10% 5%;
         background-image: none;
         background-color: var(--color--red);
+        overflow: hidden;
     }
     
     .Homepage::before{
